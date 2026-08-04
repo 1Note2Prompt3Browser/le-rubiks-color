@@ -1,0 +1,55 @@
+/* ==========================================================================
+   🎨 DESIGN DÉDIÉ AUX ALGORITHMES MULTIPLES (SANS CONTRAINTES)
+   ========================================================================== */
+
+/* Structure générale de la page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e2022;
+    color: #f5f6f7;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container-multi {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Couleurs de textes héritées de la page de remerciements */
+.w-txt { color: #FFFFFF; }
+.y-txt { color: #FFD500; }
+.g-txt { color: #009B48; }
+.b-txt { color: #0046AD; }
+.r-txt { color: #B71234; }
+.o-txt { color: #FF5800; }
+.text-muted { color: #a0a5ab; }
+
+/* 🧱 LA BRIQUE D'ISOLATION NATURELLE : 
+   Chaque étape prend toute la largeur disponible de la page. 
+   On ne bloque pas la hauteur, on laisse le cube prendre ses 400px ou plus. */
+.section-etape-cube {
+    background-color: #2a2d30;
+    padding: 45px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    display: block; /* Flux naturel vertical standard */
+    clear: both;    /* Empêche toute interférence visuelle entre les cubes */
+}
+
+/* Alignements des textes à gauche pour la clarté pédagogique */
+.section-etape-cube h1 { font-size: 2.2rem; margin-top: 0; margin-bottom: 10px; }
+.section-etape-cube h2 { font-size: 1.4rem; margin-bottom: 20px; font-weight: 400; }
+.section-etape-cube p { font-size: 1.05rem; margin-bottom: 30px; max-width: 750px; }
+
+/* 🧊 LA ZONE DE LIBERTÉ DU CUBE :
+   Aucun Flexbox, aucun Grid, aucun aspect-ratio, aucune restriction de taille.
+   On donne simplement une marge pour détacher le cube du texte et le laisser s'afficher. */
+.cube-box-libre {
+    margin-top: 25px;
+    display: block;
+    width: 100%;
+}

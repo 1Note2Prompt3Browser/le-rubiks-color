@@ -1,0 +1,827 @@
+/* ==========================================================================
+   🎨 CHARTE GRAPHIQUE - LES 6 COULEURS DU RUBIK'S CUBE (Variables CSS)
+   ========================================================================== */
+:root {
+    --cube-white: #FFFFFF;
+    --cube-yellow: #FFD500;
+    --cube-green: #009B48;
+    --cube-blue: #0046AD;
+    --cube-red: #B71234;
+    --cube-orange: #FF5800;
+    
+    /* Couleurs de structure neutres */
+    --bg-dark: #1e2022;
+    --bg-card: #2a2d30;
+    --text-light: #f5f6f7;
+    --text-muted: #a0a5ab;
+}
+
+/* 
+  🎓 CONSEIL FORMATEUR - RESET CSS :
+  Le sélecteur * avec box-sizing: border-box permet de contrôler précisément la taille 
+  des blocs en incluant les bordures et les paddings à l'intérieur de la largeur définie.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Navigation & Menu Responsive
+   ========================================================================== */
+.main-header {
+    background-color: #151718;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--bg-card);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.text-accent {
+    color: var(--cube-green);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--cube-yellow);
+}
+
+/* Gestion des Menus Déroulants (Dropdown) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-card);
+    list-style: none;
+    min-width: 180px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+/* 
+  🎓 CONSEIL FORMATEUR - ACCESSIBILITÉ & EFFET :
+  L'utilisation combinée de opacity, visibility et transform crée une transition fluide 
+  au survol tout en empêchant le clic fantôme lorsque le menu est masqué.
+*/
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    border-left: 4px solid transparent;
+}
+
+/* Couleurs spécifiques injectées dans le sous-menu Rubik's */
+.dropdown-menu li a.c-white { border-left-color: var(--cube-white); }
+.dropdown-menu li a.c-yellow { border-left-color: var(--cube-yellow); }
+.dropdown-menu li a.c-green { border-left-color: var(--cube-green); }
+.dropdown-menu li a.c-blue { border-left-color: var(--cube-blue); }
+.dropdown-menu li a.c-red { border-left-color: var(--cube-red); }
+.dropdown-menu li a.c-orange { border-left-color: var(--cube-orange); }
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Cache l'input checkbox servant au menu mobile */
+.menu-toggle {
+    display: none;
+}
+
+/* ==========================================================================
+   Contenu Principal & Typographie
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding: 40px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--cube-white);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+p {
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-link {
+    color: var(--cube-yellow);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.text-link:hover {
+    color: var(--cube-white);
+}
+
+/* ==========================================================================
+   Zone d'intégration du Cube Intuitif (AnimCube.js)
+   ========================================================================== */
+.cube-section {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.cube-card {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.cube-card h3 {
+    margin-bottom: 20px;
+    color: var(--cube-orange);
+}
+
+.cube-box {
+    margin: 0 auto 20px auto;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cube-legend {
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Section Grille de 6 Points Clés
+   ========================================================================== */
+.points-section h2 {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--cube-white);
+}
+
+.points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.point-item {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 6px;
+    border-top: 4px solid transparent;
+}
+
+.point-item p {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+/* Attribution des couleurs de bordure pour les 6 points */
+.border-white  { border-top-color: var(--cube-white); }
+.border-yellow { border-top-color: var(--cube-yellow); }
+.border-green  { border-top-color: var(--cube-green); }
+.border-blue   { border-top-color: var(--cube-blue); }
+.border-red    { border-top-color: var(--cube-red); }
+.border-orange { border-top-color: var(--cube-orange); }
+
+/* ==========================================================================
+   Pied de Page (Footer)
+   ========================================================================== */
+.main-footer {
+    background-color: #151718;
+    text-align: center;
+    padding: 30px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--bg-card);
+}
+
+.main-footer a {
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   🎓 CLASSE DE FORMATION TECHNIQUE (Texte masqué visuellement)
+   ========================================================================== */
+.hidden-trainer-text {
+    display: none; /* Cache complètement l'élément du rendu visuel de l'écran */
+    background-color: #3e2723;
+    border-left: 5px solid var(--cube-orange);
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 11px; /* Réduit la taille pour la discrétion */
+    color: #ffab91;
+}
+
+/* ==========================================================================
+   📱 RESPONSIVE DESIGN (Media Queries pour Mobiles et Tablettes)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .burger-label {
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+        cursor: pointer;
+        gap: 5px;
+    }
+    
+    .burger-label span {
+        background-color: var(--text-light);
+        height: 3px;
+        width: 100%;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #151718;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    /* Déclencheur du menu burger via la checkbox HTML */
+    .menu-toggle:checked ~ .main-nav {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    /* Adaptation des menus déroulants sur petits écrans */
+    .dropdown-menu {
+        position: relative;
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        box-shadow: none;
+        background-color: rgba(0,0,0,0.2);
+        margin-left: 15px;
+        margin-top: 5px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        max-height: 300px;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.2rem; }
+}
+
+/* ==========================================================================
+   🎨 SYSTÈME DE THÈMES DYNAMIQUES (Pour les pages spécifiques)
+   ========================================================================== */
+
+/* ── THÈME ORANGE (Page Gaucher Orange) ── */
+body.theme-orange .text-accent-page { color: var(--cube-orange); }
+body.theme-orange .text-link { color: var(--cube-orange); }
+body.theme-orange .main-header { border-bottom-color: var(--cube-orange); }
+body.theme-orange .step-number { background-color: var(--cube-orange); color: var(--bg-dark); }
+body.theme-orange .cube-card { border-top: 4px solid var(--cube-orange); }
+
+/* ── THÈME ROUGE (Page Droitier Rouge) ── */
+body.theme-red .text-accent-page { color: var(--cube-red); }
+body.theme-red .text-link { color: var(--cube-red); }
+body.theme-red .main-header { border-bottom-color: var(--cube-red); }
+body.theme-red .step-number { background-color: var(--cube-red); color: var(--text-light); }
+body.theme-red .cube-card { border-top: 4px solid var(--cube-red); }
+
+/* ── THÈME BLANC (Page Ambidextre Blanche) ── */
+body.theme-white .text-accent-page { color: var(--cube-white); }
+body.theme-white .text-link { color: var(--cube-white); text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+body.theme-white .main-header { border-bottom-color: var(--cube-white); }
+body.theme-white .step-number { background-color: var(--cube-white); color: var(--bg-dark); }
+body.theme-white .cube-card { border-top: 4px solid var(--cube-white); }
+
+
+/* ==========================================================================
+   STRUCTURE DES PAGES DE FORMATION (LISTES ET CUBES MULTIPLES)
+   ========================================================================== */
+.ordered-steps {
+    list-style: none;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.ordered-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: var(--bg-card);
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.step-number {
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step-content p {
+    margin: 0;
+    text-align: left;
+}
+
+/* Zone d'enchaînement de plusieurs cubes */
+.multi-cubes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.cube-block-unit {
+    background-color: #1a1c1e;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.cube-block-unit h1 { font-size: 2rem; margin-bottom: 5px; }
+.cube-block-unit h2 { font-size: 1.3rem; margin-bottom: 20px; }
+
+/* Masquage de la zone de cours cachée */
+.css-hidden-lesson {
+    display: none;
+    font-size: 11px;
+    color: #a5d6a7;
+    background: #1b5e20;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+
+/* ==========================================================================
+   🧱 DESIGN DE LA PAGE DE CONTACT (ASSEMBLAGE 6 COULEURS)
+   ========================================================================== */
+
+/* Grille principale de contact */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Style de base des blocs de contact */
+.contact-card {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-left: 6px solid transparent;
+}
+
+/* Attribution des 6 couleurs aux différents blocs */
+.card-email { border-left-color: var(--cube-green); }
+.card-youtube { border-left-color: var(--cube-red); }
+.card-facebook { border-left-color: var(--cube-blue); }
+.card-group { border-left-color: var(--cube-yellow); }
+.card-whatsapp { border-left-color: var(--cube-orange); }
+.card-info { border-left-color: var(--cube-white); }
+
+/* Formulaire de contact */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.form-group input, 
+.form-group textarea {
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 4px;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--cube-green);
+}
+
+/* Boutons colorés du Cube */
+.btn-cube {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--bg-dark);
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+.btn-cube:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn-green { background-color: var(--cube-green); color: var(--text-light); }
+.btn-red { background-color: var(--cube-red); color: var(--text-light); }
+.btn-blue { background-color: var(--cube-blue); color: var(--text-light); }
+.btn-yellow { background-color: var(--cube-yellow); color: var(--bg-dark); }
+.btn-orange { background-color: var(--cube-orange); color: var(--text-light); }
+
+/* Grille secondaire pour aligner les réseaux sociaux */
+.social-networks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Section supplémentaire de texte */
+.extra-text-section {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #1a1c1e;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--cube-yellow);
+}
+
+/* ==========================================================================
+   📚 ARCHITECTURE DE LA PAGE FORMATION (ASYMÉTRIE & MODULES)
+   ========================================================================== */
+
+/* Grille asymétrique pour les modules */
+.formation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* Base des cartes de formation */
+.formation-card {
+    background-color: var(--bg-card);
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-top: 5px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.formation-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 🎓 ASTUCE FORMATEUR - TAILLES ASYMÉTRIQUES :
+   Ces classes permettent de forcer un bloc à prendre toute la largeur (2 colonnes) 
+   pour créer un rythme visuel intéressant dans la formation. */
+.size-full {
+    grid-column: span 2;
+}
+
+.size-half {
+    grid-column: span 1;
+}
+
+/* Application des 6 couleurs du cube aux cartes */
+.f-white  { border-top-color: var(--cube-white); }
+.f-yellow { border-top-color: var(--cube-yellow); }
+.f-green  { border-top-color: var(--cube-green); }
+.f-blue   { border-top-color: var(--cube-blue); }
+.f-red    { border-top-color: var(--cube-red); }
+.f-orange { border-top-color: var(--cube-orange); }
+
+/* Titres spécifiques internes aux modules */
+.formation-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.formation-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.formation-card p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Boutons d'action internes aux modules */
+.formation-card .btn-cube {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* Adaptation aux tablettes et smartphones */
+@media (max-width: 850px) {
+    .formation-grid {
+        grid-template-columns: 1fr;
+    }
+    .size-full, .size-half {
+        grid-column: span 1;
+    }
+}
+
+/* ==========================================================================
+   🧩 DESIGN DE LA PAGE "EN CONSTRUCTION" (CUBE MÉLANGÉ)
+   ========================================================================== */
+
+/* Animation légère de rotation pour l'icône de construction */
+@keyframes spin-cube {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.scramble-icon {
+    display: inline-block;
+    font-size: 4rem;
+    animation: spin-cube 12s linear infinite;
+    margin-bottom: 20px;
+}
+
+/* Classes de coloration de mots individuels */
+.w-txt { color: var(--cube-white); }
+.y-txt { color: var(--cube-yellow); text-shadow: 0 0 5px rgba(255,213,0,0.2); }
+.g-txt { color: var(--cube-green); }
+.b-txt { color: var(--cube-blue); }
+.r-txt { color: var(--cube-red); }
+.o-txt { color: var(--cube-orange); }
+
+/* Bloc central d'avertissement multicolore */
+.construction-box {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 850px;
+    margin: 40px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    /* Bordure multicolore symbolisant le mélange */
+    border-top: 4px solid var(--cube-red);
+    border-right: 4px solid var(--cube-green);
+    border-bottom: 4px solid var(--cube-yellow);
+    border-left: 4px solid var(--cube-orange);
+}
+
+/* Séparateur en forme de points colorés */
+.color-dots-separator {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.d-w { background-color: var(--cube-white); }
+.d-y { background-color: var(--cube-yellow); }
+.d-g { background-color: var(--cube-green); }
+.d-b { background-color: var(--cube-blue); }
+.d-r { background-color: var(--cube-red); }
+.d-o { background-color: var(--cube-orange); }
+
+/* Style du paragraphe hybride (Gras + Normal) */
+.hybrid-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.hybrid-paragraph strong {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Bouton de retour à l'accueil multicolore au survol */
+.btn-back-home {
+    margin-top: 30px;
+    border: 2px solid var(--cube-white);
+    background: transparent;
+    color: var(--text-light);
+}
+
+.btn-back-home:hover {
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+
+/* ==========================================================================
+   🧩 DESIGN DE LA PAGE "REMERCIEMENTS" (EXPLOSION DE COULEURS CRÉATIVE)
+   ========================================================================== */
+
+/* Bloc central de gratitude multicolore */
+.thanks-box {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    /* Cadre aux 4 couleurs dynamiques */
+    border-top: 4px solid var(--cube-blue);
+    border-right: 4px solid var(--cube-orange);
+    border-bottom: 4px solid var(--cube-green);
+    border-left: 4px solid var(--cube-red);
+}
+
+/* Grille pour ajouter plusieurs blocs de texte de couleurs différentes */
+.thanks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Style des blocs internes */
+.thanks-block-unit {
+    background-color: #1a1c1e;
+    padding: 25px;
+    border-radius: 8px;
+    border-bottom: 4px solid transparent;
+    text-align: left;
+}
+
+/* Attribution des couleurs spécifiques aux sous-blocs */
+.tb-white  { border-bottom-color: var(--cube-white); }
+.tb-yellow { border-bottom-color: var(--cube-yellow); }
+.tb-green  { border-bottom-color: var(--cube-green); }
+.tb-blue   { border-bottom-color: var(--cube-blue); }
+.tb-red    { border-bottom-color: var(--cube-red); }
+.tb-orange { border-bottom-color: var(--cube-orange); }
+
+.thanks-block-unit h1 { font-size: 1.6rem; margin-bottom: 5px; }
+.thanks-block-unit h2 { font-size: 1.1rem; margin-bottom: 15px; }
+.thanks-block-unit p { margin: 0 0 15px 0; font-size: 0.95rem; line-height: 1.6; }
+
+/* ==========================================================================
+   🧱 ARCHITECTURE MULTI-CUBES STABLE (SANS RETRÉCISSEMENT)
+   ========================================================================== */
+
+/* Conteneur parent qui isole chaque bloc de cours */
+.cube-row-isolation {
+    width: 100%;
+    margin-bottom: 50px; /* Espace généreux entre chaque étape */
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 6px solid transparent;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Application des couleurs sur les bordures gauches des blocs */
+.row-white  { border-left-color: var(--cube-white); }
+.row-green  { border-left-color: var(--cube-green); }
+.row-orange { border-left-color: var(--cube-orange); }
+.row-blue   { border-left-color: var(--cube-blue); }
+.row-red    { border-left-color: var(--cube-red); }
+.row-yellow { border-left-color: var(--cube-yellow); }
+
+/* Zone ultra-stable pour le script JavaScript */
+.stable-cube-container {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    display: block; /* Force le bloc à occuper son propre espace */
+    width: 100%;
+    max-width: 280px; /* Taille fixe parfaite pour mobile et PC */
+    margin: 20px auto; /* Centre le cube horizontalement */
+}
+
+/* Aligne le texte du cours à gauche et laisse le cube centré */
+.cube-row-isolation h1 { font-size: 1.8rem; margin-bottom: 5px; text-align: left; }
+.cube-row-isolation h2 { font-size: 1.2rem; margin-bottom: 15px; text-align: left; }
+.cube-row-isolation p { text-align: left; margin-bottom: 15px; }
