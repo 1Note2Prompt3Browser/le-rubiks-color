@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmes de Formation - Rubik's Intuition</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="AnimCube.js" defer></script>
+</head>
+<body>
+
+    <!-- 🤝 MENU STRICTEMENT IDENTIQUE À INDEX.HTML -->
+    <header class="main-header">
+        <div class="logo"><span class="cube-icon">🛑</span> Rubik's <span class="text-accent">Intuition</span></div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="burger-label"><span></span><span></span><span></span></label>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Présentation</a></li>
+                <li><a href="#" class="active">Formation</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger">Gaucher 👇</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gaucher-blanc.html" class="c-white">Face Blanche</a></li>
+                        <li><a href="gaucher-jaune.html" class="c-yellow">Face Jaune</a></li>
+                        <li><a href="gaucher-vert.html" class="c-green">Face Verte</a></li>
+                        <li><a href="gaucher-bleu.html" class="c-blue">Face Bleue</a></li>
+                        <li><a href="gaucher-rouge.html" class="c-red">Face Rouge</a></li>
+                        <li><a href="gaucher-orange.html" class="c-orange">Face Orange</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger">Droitier 👇</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="droitier-blanc.html" class="c-white">Face Blanche</a></li>
+                        <li><a href="droitier-jaune.html" class="c-yellow">Face Jaune</a></li>
+                        <li><a href="droitier-vert.html" class="c-green">Face Verte</a></li>
+                        <li><a href="droitier-bleu.html" class="c-blue">Face Bleue</a></li>
+                        <li><a href="droitier-rouge.html" class="c-red">Face Rouge</a></li>
+                        <li><a href="droitier-orange.html" class="c-orange">Face Orange</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-trigger">Ambidextre 👇</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ambi-blanc.html" class="c-white">Face Blanche</a></li>
+                        <li><a href="ambi-jaune.html" class="c-yellow">Face Jaune</a></li>
+                        <li><a href="ambi-vert.html" class="c-green">Face Verte</a></li>
+                        <li><a href="ambi-bleu.html" class="c-blue">Face Bleue</a></li>
+                        <li><a href="ambi-rouge.html" class="c-red">Face Rouge</a></li>
+                        <li><a href="ambi-orange.html" class="c-orange">Face Orange</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- Section Introduction -->
+        <section class="hero-section">
+            <h1>Lorem Ipsum Formations</h1>
+            <h2>Explorez nos modules d'apprentissage par la logique pure</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Chaque bloc ci-dessous représente une étape ou une spécialisation de notre cursus. 
+                Consultez notre <a href="#" class="text-link">guide des prérequis</a> pour débuter sereinement.
+            </p>
+        </section>
+
+        <!-- Grille de formation asymétrique (6 Blocs de base aux couleurs du cube) -->
+        <div class="formation-grid">
+            
+            <!-- BLOC 1 - BLANC (Grande taille - Pleine largeur) -->
+            <section class="formation-card f-white size-full">
+                <div>
+                    <h1>Lorem Module Blanc</h1>
+                    <h2>Niveau Fondations : L'initiation à l'espace 3D</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Idéal pour poser les bases de la logique intuitive et comprendre la manipulation des couronnes neutres sans stress. <a href="#" class="text-link">En savoir plus</a>.</p>
+                </div>
+                <a href="#" class="btn-cube btn-green">Démarrer ce module 🎯</a>
+            </section>
+
+            <!-- BLOC 2 - VERT (Petite taille - Demi largeur) -->
+            <section class="formation-card f-green size-half">
+                <div>
+                    <h1>Lorem Module Vert</h1>
+                    <h2>Les premiers réflexes mécaniques</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Apprenez à mémoriser les enchaînements fluides de type Haut et Bas. <a href="#" class="text-link">Lien de téléchargement</a>.</p>
+                </div>
+                <a href="#" class="btn-cube btn-blue">Ouvrir le cours 📂</a>
+            </section>
+
+            <!-- BLOC 3 - BLEU (Petite taille - Demi largeur) -->
+            <section class="formation-card f-blue size-half">
+                <div>
+                    <h1>Lorem Module Bleu</h1>
+                    <h2>La gestion des trajectoires latérales</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ce module se focalise exclusivement sur les translations Droite et Gauche.</p>
+                </div>
+                <a href="#" class="btn-cube btn-orange">Accéder aux exercices ⚡</a>
+            </section>
+
+            <!-- BLOC 4 - JAUNE (Petite taille - Demi largeur) -->
+            <section class="formation-card f-yellow size-half">
+                <div>
+                    <h1>Lorem Module Jaune</h1>
+                    <h2>La symétrie et les cas d'inversion</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maîtrisez le comportement des pièces pivots selon votre latéralité.</p>
+                </div>
+                <a href="#" class="btn-cube btn-red">Découvrir les astuces 💡</a>
+            </section>
+
+            <!-- BLOC 5 - ROUGE (Petite taille - Demi largeur) -->
+            <section class="formation-card f-red size-half">
+                <div>
+                    <h1>Lorem Module Rouge</h1>
+                    <h2>Vitesse, fluidité et automatismes</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Travaillez l'ancrage musculaire des formules simples du Rubik's.</p>
+                </div>
+                <a href="#" class="btn-cube btn-yellow">Lancer le chrono ⏱️</a>
+            </section>
+
+            <!-- BLOC 6 - ORANGE (Grande taille - Pleine largeur) -->
+            <section class="formation-card f-orange size-full">
+                <div>
+                    <h1>Lorem Module Orange</h1>
+                    <h2>Niveau Expert : Combinaisons et routines avancées</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Apprenez à combiner toutes les formules précédentes pour résoudre n'importe quel cube en moins de deux minutes en appliquant l'algorithme universel simplifié. <a href="#" class="text-link">Modifier ce lien de spécialisation</a>.</p>
+                </div>
+                <a href="#" class="btn-cube btn-green">Passer la certification 🎓</a>
+            </section>
+
+            <!-- 🎓 FORMATION : COMMENT RAJOUTER UN BLOC DE FORMATION SUPPLÉMENTAIRE ?
+                 Pour ajouter un bloc (le 7ème par exemple), copiez-collez l'un des blocs <section> ci-dessus 
+                 juste avant la fermeture de la grille (la balise </div> ci-dessous).
+                 
+                 Pour gérer sa TAILLE, utilisez :
+                 - class="... size-full" pour un grand bloc qui prend toute la largeur.
+                 - class="... size-half" pour un petit bloc qui se met côte à côte avec un autre.
+                 
+                 Pour gérer sa COULEUR de bordure, utilisez :
+                 - f-white (Blanc), f-yellow (Jaune), f-green (Vert), f-blue (Bleu), f-red (Rouge), f-orange (Orange).
+            -->
+
+        </div>
+    </main>
+
+    <!-- 🤝 FOOTER STRICTEMENT IDENTIQUE À INDEX.HTML -->
+    <footer class="main-footer">
+        <p>&copy; 2026 Rubik's Intuition - Apprentissage Pédagogique Personnalisé.</p>
+        <p>Conçu sans framework pour une vitesse maximale. <a href="#">Mentions Légales</a></p>
+    </footer>
+
+</body>
+</html>
